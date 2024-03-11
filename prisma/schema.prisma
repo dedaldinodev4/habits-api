@@ -1,0 +1,66 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id         String   @id @default(uuid())
+  name       String
+  email      String   @unique
+  password   String
+  role       Role     @default(member)
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+
+  @@map("_users")
+}
+
+model Habit {
+  id          String   @id @default(uuid())
+  name        String
+  description String?
+  id_category String
+  id_goal     String?
+  category    Category @relation(fields: [id_category], references: [id])
+  goal        Goal?     @relation(fields: [id_goal], references: [id])
+  created_at  DateTime @default(now())
+  updated_at  DateTime @updatedAt
+
+  @@map("_habits")
+}
+
+model Category {
+  id          String   @id @default(uuid())
+  name        String   @unique
+  description String?
+  created_at  DateTime @default(now())
+  updated_at  DateTime @updatedAt
+  Habit       Habit[]
+
+  @@map("_categories")
+}
+
+model Goal {
+  id         String   @id @default(uuid())
+  name       String   @unique
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+  Habit      Habit[]
+
+  @@map("_goals")
+}
+
+enum Role {
+  admin
+  member
+}
