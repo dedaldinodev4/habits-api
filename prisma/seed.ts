@@ -9,16 +9,16 @@ async function main() {
   const goals = await prisma.goal.createMany({
     data: [
       {
-        name: "Diário", description: `Diário`, tag: "daily"
+        name: "Diário", tags: "daily"
       },
       {
-        name: "Semanal", description: `Semanal`, tag: "weekly"
+        name: "Semanal", tags: "weekly"
       },
       {
-        name: "Mensal", description: `Mensal`, tag: "monthly"
+        name: "Mensal", tags: "monthly"
       },
       {
-        name: "Anual", description: `Anual`, tag: "annual"
+        name: "Anual", tags: "annual"
       },
       
     ]
@@ -28,13 +28,13 @@ async function main() {
   const categories = await prisma.category.createMany({
     data: [
       {
-        name: "Saúde", description: `Saúde`, tag: "health"
+        name: "Saúde", description: `Saúde`, tags: "health"
       },
       {
-        name: "Produtividade", description: `Produtividade`, tag: "productivity"
+        name: "Produtividade", description: `Produtividade`, tags: "productivity"
       },
       {
-        name: "Bem-Estar", description: `Bem-Estar`, tag: "well-being"
+        name: "Bem-Estar", description: `Bem-Estar`, tags: "well-being"
       },
       
     ]

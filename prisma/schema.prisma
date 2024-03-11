@@ -33,6 +33,7 @@ model Habit {
   id_goal     String?
   category    Category @relation(fields: [id_category], references: [id])
   goal        Goal?     @relation(fields: [id_goal], references: [id])
+  goal_value String?
   created_at  DateTime @default(now())
   updated_at  DateTime @updatedAt
 
@@ -43,6 +44,7 @@ model Category {
   id          String   @id @default(uuid())
   name        String   @unique
   description String?
+  tags         String?
   created_at  DateTime @default(now())
   updated_at  DateTime @updatedAt
   Habit       Habit[]
@@ -53,6 +55,7 @@ model Category {
 model Goal {
   id         String   @id @default(uuid())
   name       String   @unique
+  tags       String?
   created_at DateTime @default(now())
   updated_at DateTime @updatedAt
   Habit      Habit[]
