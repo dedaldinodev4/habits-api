@@ -21,6 +21,7 @@ model User {
   role       Role     @default(member)
   created_at DateTime @default(now())
   updated_at DateTime @updatedAt
+  Habit      Habit[]
 
   @@map("_users")
 }
@@ -31,9 +32,11 @@ model Habit {
   description String?
   id_category String
   id_goal     String?
+  id_user     String
   category    Category @relation(fields: [id_category], references: [id])
-  goal        Goal?     @relation(fields: [id_goal], references: [id])
-  goal_value String?
+  goal        Goal?    @relation(fields: [id_goal], references: [id])
+  user        User     @relation(fields: [id_user], references: [id])
+  goal_value  String?
   created_at  DateTime @default(now())
   updated_at  DateTime @updatedAt
 
@@ -44,7 +47,7 @@ model Category {
   id          String   @id @default(uuid())
   name        String   @unique
   description String?
-  tags         String?
+  tags        String?
   created_at  DateTime @default(now())
   updated_at  DateTime @updatedAt
   Habit       Habit[]
