@@ -20,7 +20,7 @@ export const getUser = async (app: FastifyInstance) => {
     })
 
     if (!user) {
-      return reply.status(400).send({ message: 'User not found.' })
+      return reply.status(400).send({ message: 'User does not exists.' })
     }
 
     return reply.send(user);

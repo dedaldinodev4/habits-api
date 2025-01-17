@@ -14,10 +14,11 @@ const server = fastify({
 })
 
 server.register(getAllUsers)
-server.register(getCategory)
-server.register(getAllCategories)
+
 server.register(createCategory)
 server.register(updateCategory)
+server.register(getAllCategories)
+server.register(getCategory)
 server.register(deleteCategory)
 
 
