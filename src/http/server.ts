@@ -3,14 +3,18 @@ import fastify from "fastify";
 //* Routes *//
 import { getAllUsers } from "./routes/get-all-users";
 
-import { getCategory } from "./routes/get-category";
-import { getAllCategories } from "./routes/get-all-categories";
-import { createCategory } from "./routes/create-category";
-import { updateCategory } from "./routes/update-category";
-import { deleteCategory } from "./routes/delete-category";
+import { getCategory } from "@routes/get-category";
+import { getAllCategories } from "@routes/get-all-categories";
+import { createCategory } from "@routes/create-category";
+import { updateCategory } from "@routes/update-category";
+import { deleteCategory } from "@routes/delete-category";
+
+
+
+
 
 const server = fastify({
-  logger: true
+  logger: false
 })
 
 server.register(getAllUsers)
