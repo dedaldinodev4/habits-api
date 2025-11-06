@@ -2,10 +2,9 @@ import { FastifyInstance } from "fastify"
 import { z } from "zod"
 import jwt from 'jsonwebtoken'
 
-import { prisma } from "../../lib/prisma"
+import { prisma } from "@libs/prisma"
 import { Role } from "@prisma/client"
-import { hashPassword } from "../../utils/auth"
-import { ICurrentUser } from "../../types/user"
+import { hashPassword } from "@utils/auth"
 
 
 export const signUp = async (app: FastifyInstance) => {

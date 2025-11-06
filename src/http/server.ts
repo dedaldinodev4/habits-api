@@ -1,7 +1,7 @@
 import fastify from "fastify";
 
 //* Routes *//
-import { getAllUsers } from "./routes/get-all-users";
+import { getAllUsers } from "@routes/get-all-users";
 
 import { getCategory } from "@routes/get-category";
 import { getAllCategories } from "@routes/get-all-categories";

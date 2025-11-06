@@ -5,7 +5,10 @@
     "lib": ["ES2023"],                                      
     "module": "commonjs",            
     "paths": {
-      "@routes/*": ["./src/http/routes/*"]
+      "@routes/*": ["./src/http/routes/*"],
+      "@libs/*": ["./src/lib/*"],
+      "@interfaces/*": ["./src/types/*"],
+      "@utils/*": ["./src/utils/*"],
     },                                  
     "esModuleInterop": true,                
     "strict": true,                                      

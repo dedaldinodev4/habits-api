@@ -1,7 +1,7 @@
 import { FastifyInstance } from "fastify"
 import { z } from "zod"
 
-import { prisma } from "../../lib/prisma"
+import { prisma } from "@libs/prisma"
 import { Role } from "@prisma/client"
 
 export const signIn = async (app: FastifyInstance) => {

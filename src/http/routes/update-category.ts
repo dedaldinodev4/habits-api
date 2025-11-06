@@ -1,7 +1,7 @@
 import { FastifyInstance } from "fastify"
 import { z } from "zod"
 
-import { prisma } from "../../lib/prisma"
+import { prisma } from "@libs/prisma"
 
 export const updateCategory = async (app: FastifyInstance) => {
   app.put('/categories/:categoryId', async (request, reply) => {

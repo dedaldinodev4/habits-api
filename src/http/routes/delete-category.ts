@@ -1,7 +1,7 @@
 import { FastifyInstance } from "fastify"
 import { z } from "zod"
 
-import { prisma } from "../../lib/prisma"
+import { prisma } from "@libs/prisma"
 
 export const deleteCategory = async (app: FastifyInstance) => {
   app.delete('/categories/:categoryId', async (request, reply) => {
